@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/aop
+	        			http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+	        			http://www.springframework.org/schema/beans
+        				http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	        			http://www.springframework.org/schema/context
+	        			http://www.springframework.org/schema/context/spring-context-4.3.xsd"
+       default-autowire="byName">
+
+    <!-- 激活组件扫描功能,在相关包下面自动扫描通过注解配置的组件 -->
+    <context:component-scan base-package="com.hooke.trace.aop"/>
+    <!-- 激活自动代理功能 -->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+
+    <!--Aspect的方式实现trace监测-->
+    <bean id="traceAspect" class="com.hooke.trace.aop.spring.TraceAspect">
+    </bean>
+
+    <aop:config>
+        <aop:pointcut id="tracePointcutAspect"
+                      expression="execution(* com.hooke.biz..*(..))"/>
+        <aop:aspect id="traceSpringAspect" ref="traceAspect">
+            <aop:around
+                    pointcut-ref="tracePointcutAspect"
+                    method="trace"/>
+        </aop:aspect>
+    </aop:config>
+
+
+</beans>
