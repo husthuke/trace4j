@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.LinkedList;
 
 /**
- * The type Trace tree.
+ * The type trace tree.
  *
  * @author huke <huke@tiantanhehe.com>
  * @version V1.0
@@ -21,14 +21,12 @@ public class TraceTree {
 
     private static long ERROR = -1L;
 
-//    private TraceTree trunkTree;
-
     private TraceTree parentTree;
 
     private LinkedList<TraceTree> childTraceTree;
 
     /**
-     * Instantiates a new Trace tree.
+     * Instantiates a new trace tree.
      */
     public TraceTree(){
         this.data = new TraceNode(0,1);
@@ -37,7 +35,7 @@ public class TraceTree {
     }
 
     /**
-     * Instantiates a new Trace tree.
+     * Instantiates a new trace tree.
      *
      * @param data the data
      */
@@ -47,7 +45,7 @@ public class TraceTree {
     }
 
     /**
-     * Instantiates a new Trace tree.
+     * Instantiates a new trace tree.
      *
      * @param data           the data
      * @param childTraceTree the child trace tree
@@ -58,7 +56,7 @@ public class TraceTree {
     }
 
     /**
-     * Instantiates a new Trace tree.
+     * Instantiates a new trace tree.
      *
      * @param threadId the thread id
      */
@@ -70,31 +68,6 @@ public class TraceTree {
         this.childTraceTree = new LinkedList<TraceTree>();
     }
 
-//    public boolean addTraceNode(long threadId,long processStepId){
-//
-//        TraceTree pTraceTree = this;
-//        long trunkProcessStepId = 1;
-//        while ((processStepId / TraceUtil.PRIME_BASE) > 0) {
-//            if (pTraceTree.trunkTree == null) {
-//                TraceNode traceNode = new TraceNode();
-//                traceNode.setThreadId(threadId);
-//                traceNode.setProcessStepId(trunkProcessStepId * TraceUtil.PRIME_BASE + 1);
-//                pTraceTree.trunkTree = new TraceTree(traceNode);
-//
-//
-//            }
-//                processStepId = processStepId / TraceUtil.PRIME_BASE;
-//                pTraceTree = pTraceTree.trunkTree;
-//        }
-//
-//        for (int i = 0; i < pTraceTree.childTraceTree.size(); i++) {
-//
-//        }
-//
-//
-//        return false;
-//
-//    }
 
     public int getChildNumber(long processStepId){
 
