@@ -18,18 +18,18 @@
 
 
     <!--Aspect的方式实现trace监测-->
-    <bean id="traceAspect" class="com.hooke.trace.aop.spring.TraceAspect">
-    </bean>
+    <!--<bean id="traceAspect" class="com.hooke.trace.aop.spring.TraceAspect">-->
+    <!--</bean>-->
 
-    <aop:config>
-        <aop:pointcut id="tracePointcutAspect"
-                      expression="execution(* com.hooke.biz..*(..))"/>
-        <aop:aspect id="traceSpringAspect" ref="traceAspect">
-            <aop:around
-                    pointcut-ref="tracePointcutAspect"
-                    method="trace"/>
-        </aop:aspect>
-    </aop:config>
+    <!--<aop:config>-->
+    <!--<aop:pointcut id="tracePointcutAspect"-->
+    <!--expression="execution(* com.hooke.biz..*(..))"/>-->
+    <!--<aop:aspect id="traceSpringAspect" ref="traceAspect">-->
+    <!--<aop:around-->
+    <!--pointcut-ref="tracePointcutAspect"-->
+    <!--method="trace"/>-->
+    <!--</aop:aspect>-->
+    <!--</aop:config>-->
 
 
 </beans>
