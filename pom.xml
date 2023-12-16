@@ -30,7 +30,7 @@
         <repository>
             <id>tiantan-nexus</id>
             <name>tiantan-nexus</name>
-            <url>http://139.196.253.19:8081/nexus/content/groups/public/</url>
+            <url>https://139.196.253.19:8081/nexus/content/groups/public/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
